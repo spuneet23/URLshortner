@@ -31,7 +31,11 @@ app.get('/new/:url(*)',function(req,res){
       res.send(finalRes);
 
     } else {
-        res.send('Not a URI');
+       var error= {
+        error: "Not a Valid Url"
+       };
+
+        res.send(error);
     }
   
 });
