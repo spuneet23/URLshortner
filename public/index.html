@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>URL Shortner</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+
+    <div class="container">
+      <h1>URL SHORTNER MICROSERVICE</h1>
+      <div class="user_stories">
+      <h3>User Stories</h3>
+        <p>1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</p>
+        <p>2) When I visit that shortened URL, it will redirect me to my original link.</p>
+        <p>3) If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</p>
+    </div>
+    <br>
+
+    <div class="example_usage">
+      <h2>Example usage:</h2>
+      <h5>https://little-url.herokuapp.com/new/https://www.google.com</h5>
+      <h5>https://little-url.herokuapp.com/new/http://foo.com:80</h5>
+    </div>
+
+    <div class="example_output">
+      <h2>Example Output</h2>
+      <h5>{ "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }</h5>
+    </div>
+    
+    <div class="usage">
+      <h2>Usage</h2>
+      <h5>https://little-url.herokuapp.com/2871</h5>
+    </div>
+
+    <div class="redirect">
+      <h2>Will redirect to:</h2>
+      <h5>https://www.google.com/</h5>
+    </div>
+
+    </div><!-- /.container -->
+
+   <script src="/js/jquery-1.10.2.js"></script>
+   <script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>
