@@ -6,6 +6,8 @@ var moment = require('moment');
 var validUrl = require('valid-url');
 var shortid = require('shortid');
 
+var orgUrl;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -17,8 +19,8 @@ app.get('/',function(req,res){
 
 app.get('/new/:url(*)',function(req,res){
     var host = req.get('host');
-    var orgUrl= req.params.url;
-    var shortUrl = host+"/"+shortid.generate();
+     orgUrl= req.params.url;
+    var shortUrl = "https://"+host+"/"+shortid.generate();
 
       if (validUrl.isUri(orgUrl)){
       var finalRes= {
@@ -27,11 +29,18 @@ app.get('/new/:url(*)',function(req,res){
       };
 
       res.send(finalRes);
+
     } else {
         res.send('Not a URI');
     }
   
 });
+
+    app.get('/:short', function(req,res){
+      var short = req.params.short;
+       res.redirect(orgUrl);
+    });
+
 
 var port = Number(process.env.PORT || 3000);
 app.listen(port, function(){
